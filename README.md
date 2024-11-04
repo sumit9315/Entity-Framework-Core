@@ -99,11 +99,16 @@ public class student
 EFcoreDbContext.cs
 -----------------
 using Microsoft.EntityframeworkCore
+
 public class EFcoreDbContext : DBContext
+
 {
     protected override void OnConfiguring(DbContextOptionBuilder Builder)
+    
     {
+    
         builder.UseSqlServer("connection string)
+        
     }
 
     public DbSet <student> students{get;set;}
