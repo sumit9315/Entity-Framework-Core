@@ -35,6 +35,7 @@ public class student
 -------------------------------
 
   class student:
+  
   A student can belong to a single branch=====>one to one relation
   -------------
   => Reference navigation property and this model will contains foriegn key.
@@ -45,6 +46,7 @@ public class student
         foriegn key will be **Branch Id** i.e primary key of Branch table
 
 class branch:
+
   A branch can have many student.--> one to many
   -----------
   =>Collection Navigation property andf this model will have primary key.
@@ -56,31 +58,32 @@ class branch:
 3)Now create a custom DB context class
 -----------------
 i create a class with proper name.
-**ex. EFcoreDbContext.cs**
+  **ex. EFcoreDbContext.cs**
 
 add **Microsoft.EntityframeworkCore** namespace  which contain DbContext class.
-**using Microsoft.EntityframeworkCore**
+  **using Microsoft.EntityframeworkCore**
 
 ii Inherit the class from DbContext class
-**public class EFcoreDbContext : DBContext**
-{
-}
+  **public class EFcoreDbContext : DBContext**
+  {
+  }
 
 iii Now we need to create connection between DB and our DOT NET application.For this DbContect class has **OnConfiguring** method which is virtual and of void type(as it create connection and doesn't return anything) so we need to overide the **OnConfiguring** menthod and it takes one parameter of **DbContextOptionBuilder** class object and **DbContextOptionBuilder** class has a method **UseSqlServer**(provider specific) which takes connection string to connect to db.
 ex.
-**public class EFcoreDbContext : DBContext**
-
-  {
   
-    protected override void OnConfiguring(DbContextOptionBuilder Builder)
-    
+  public class EFcoreDbContext : DBContext
+  
     {
     
-        builder.UseSqlServer("connection string)
-        
+      protected override void OnConfiguring(DbContextOptionBuilder Builder)
+      
+      {
+      
+          builder.UseSqlServer("connection string)
+          
+      }
+      
     }
-    
-  }
 
 iv Now connection is made.
 
@@ -96,17 +99,17 @@ vi Program to create a student table in sql server db.
 student.cs
 -------------
 
-public class student
+  public class student
 
-{
-   public int Id{get;set}
-   
-   public string? Name {get;set;}
-}
+  {
+     public int Id{get;set}
+     
+     public string? Name {get;set;}
+  }
 
 EFcoreDbContext.cs
 -----------------
-  using Microsoft.EntityframeworkCore
+using Microsoft.EntityframeworkCore
 
   public class EFcoreDbContext : DBContext
 
