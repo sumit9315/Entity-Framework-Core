@@ -26,10 +26,10 @@ Code 1st approach:
 -----------------------
 ex. student,brnach,address class for which we need to craete db table in db
 
-public class student
-{
-  
-}
+  public class student
+  {
+    
+  }
 
 2)identify primary and foriegn key in model i.e refernace navigation property and collection navigation property
 -------------------------------
@@ -65,25 +65,25 @@ add **Microsoft.EntityframeworkCore** namespace  which contain DbContext class.
 
 ii Inherit the class from DbContext class
   **public class EFcoreDbContext : DBContext**
-  {
-  }
+    {
+    }
 
 iii Now we need to create connection between DB and our DOT NET application.For this DbContect class has **OnConfiguring** method which is virtual and of void type(as it create connection and doesn't return anything) so we need to overide the **OnConfiguring** menthod and it takes one parameter of **DbContextOptionBuilder** class object and **DbContextOptionBuilder** class has a method **UseSqlServer**(provider specific) which takes connection string to connect to db.
 ex.
   
-  public class EFcoreDbContext : DBContext
+    public class EFcoreDbContext : DBContext
   
-    {
-    
-      protected override void OnConfiguring(DbContextOptionBuilder Builder)
-      
       {
       
-          builder.UseSqlServer("connection string)
-          
+        protected override void OnConfiguring(DbContextOptionBuilder Builder)
+        
+        {
+        
+            builder.UseSqlServer("connection string)
+            
+        }
+        
       }
-      
-    }
 
 iv Now connection is made.
 
@@ -99,33 +99,34 @@ vi Program to create a student table in sql server db.
 student.cs
 -------------
 
-  public class student
+    public class student
 
-  {
-     public int Id{get;set}
-     
-     public string? Name {get;set;}
-  }
+      {
+         public int Id{get;set}
+         
+         public string? Name {get;set;}
+      }
 
 EFcoreDbContext.cs
 -----------------
-using Microsoft.EntityframeworkCore
 
-  public class EFcoreDbContext : DBContext
+  using Microsoft.EntityframeworkCore
 
-  {
-  
-    protected override void OnConfiguring(DbContextOptionBuilder Builder)
-    
+    public class EFcoreDbContext : DBContext
+
     {
     
-        builder.UseSqlServer("connection string)
-        
+      protected override void OnConfiguring(DbContextOptionBuilder Builder)
+      
+      {
+      
+          builder.UseSqlServer("connection string)
+          
+      }
+  
+      public DbSet <student> students{get;set;}
+      
     }
-
-    public DbSet <student> students{get;set;}
-    
-  }
 
 Vii Now before creating table in DB ,create migration
         add-migration migration_name
