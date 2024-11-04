@@ -86,7 +86,9 @@ it will create a dbo.Students table in databse from student model and all proper
 
 
 vi Program to create a student table in sql server db.
+----------------------------------------------------
 student.cs
+-------------
 
 public class student
 {
@@ -95,6 +97,7 @@ public class student
 }
 
 EFcoreDbContext.cs
+-----------------
 **using Microsoft.EntityframeworkCore**
 **public class EFcoreDbContext : DBContext**
 {
