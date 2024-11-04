@@ -70,7 +70,7 @@ iii Now we need to create connection between DB and our DOT NET application.For 
 ex.
 **public class EFcoreDbContext : DBContext**
 {
-    protected **override** void **OnConfiguring**(**DbContextOptionBuilder**Builder)
+    protected override void OnConfiguring(DbContextOptionBuilder Builder)
     {
         builder.UseSqlServer("connection string)
     }
@@ -98,10 +98,10 @@ public class student
 
 EFcoreDbContext.cs
 -----------------
-**using Microsoft.EntityframeworkCore**
-**public class EFcoreDbContext : DBContext**
+using Microsoft.EntityframeworkCore
+public class EFcoreDbContext : DBContext
 {
-    protected **override** void **OnConfiguring**(**DbContextOptionBuilder**Builder)
+    protected override void OnConfiguring(DbContextOptionBuilder Builder)
     {
         builder.UseSqlServer("connection string)
     }
