@@ -1,7 +1,7 @@
 # Entity-Framework-Core
 
 Problem with ADO .NET:
-  we have to create conncyion object.
+- we have to create conncyion object.
   open the connection object.
   create the command object.
   Execute the commnad 
