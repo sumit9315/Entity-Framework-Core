@@ -69,11 +69,17 @@ ii Inherit the class from DbContext class
 iii Now we need to create connection between DB and our DOT NET application.For this DbContect class has **OnConfiguring** method which is virtual and of void type(as it create connection and doesn't return anything) so we need to overide the **OnConfiguring** menthod and it takes one parameter of **DbContextOptionBuilder** class object and **DbContextOptionBuilder** class has a method **UseSqlServer**(provider specific) which takes connection string to connect to db.
 ex.
 **public class EFcoreDbContext : DBContext**
+
   {
+  
     protected override void OnConfiguring(DbContextOptionBuilder Builder)
+    
     {
+    
         builder.UseSqlServer("connection string)
+        
     }
+    
   }
 
 iv Now connection is made.
@@ -105,6 +111,7 @@ EFcoreDbContext.cs
   public class EFcoreDbContext : DBContext
 
   {
+  
     protected override void OnConfiguring(DbContextOptionBuilder Builder)
     
     {
@@ -114,6 +121,7 @@ EFcoreDbContext.cs
     }
 
     public DbSet <student> students{get;set;}
+    
   }
 
 Vii Now before creating table in DB ,create migration
