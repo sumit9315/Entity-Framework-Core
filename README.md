@@ -141,7 +141,16 @@ viii Now to add table update migration
 
 
 
+SELECT SERVERPROPERTY('IsIntegratedSecurityOnly');
 
+
+SELECT name, type_desc, is_disabled
+FROM sys.server_principals
+WHERE type IN ('S', 'U');  -- S = SQL Server login, U = Windows login
+
+ALTER LOGIN [sa] WITH PASSWORD = 'Silicon@7894';
+
+SELECT * FROM __EFMigrationsHistory;
 
 
       
