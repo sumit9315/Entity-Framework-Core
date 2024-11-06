@@ -1,5 +1,5 @@
 step 1: first create Custom DB context class
-
+-----------------------------------------
 Creating MyDbContext.cs
 ------------------------------------------
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +25,7 @@ namespace EntityframeworkCoreDemo.Entities
     }
 }
 
-
+------------------------------------------------------------------
 step 2:create object of custom context class in program.cs class.
 _______________________________________________________________
 we can create DB using two way:
@@ -57,12 +57,31 @@ namespace EntityframeworkCoreDemo
         }
     }
 }
+-------------
+Output log:
+-------------
 
-Output:
+info: 06-11-2024 13:06:12.477 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command)
+      Executed DbCommand (2,954ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      CREATE DATABASE [EfCoreDb];
+info: 06-11-2024 13:06:13.310 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command)
+      Executed DbCommand (823ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [EfCoreDb] SET READ_COMMITTED_SNAPSHOT ON;
+      END;
+info: 06-11-2024 13:06:13.448 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command)
+      Executed DbCommand (82ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+Database created.
 
-![image](https://github.com/user-attachments/assets/f9365f49-bbbb-4911-a58b-c51bf026864d)
+--------------------
+output in databse:
+-------------------
+Check databse name in database
 
 
+------------------
 Possible error:
 -------------------
 1)Error:A connection was successfully established with the server, but then an error occurred during the login process. (provider: SSL Provider, error: 0 - The certificate chain was issued by an authority that is not trusted.)
