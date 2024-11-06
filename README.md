@@ -134,7 +134,9 @@ Vii Now before creating table in DB ,create migration
 viii Now to add table update migration 
         update migration
 
-  
+
+  ![image](https://github.com/user-attachments/assets/697e7dc0-ed5f-475f-a820-3d5eef4762fe)
+
 
 
 
